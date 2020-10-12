@@ -35,7 +35,9 @@ func Scrape(tt string) []string {
 		sodaSection.ForEach("p", func(_ int, quote *colly.HTMLElement) {
 
 			// Trim WhiteSpaces and remove \n chars
-			quotes = append(quotes, strings.TrimSpace(strings.ReplaceAll(quote.Text, "\n", "")))
+			quote.Text = strings.TrimSpace(strings.ReplaceAll(quote.Text, "\n", ""))
+			quote.Text = strings.ReplaceAll(quote.Text, ":", ": ")
+			quotes = append(quotes, quote.Text)
 
 		})
 		quotes = append(quotes, "<hr>")
