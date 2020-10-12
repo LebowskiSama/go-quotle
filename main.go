@@ -38,7 +38,7 @@ func Scrape(tt string) []string {
 			quotes = append(quotes, strings.TrimSpace(strings.ReplaceAll(quote.Text, "\n", "")))
 
 		})
-		quotes = append(quotes, "<br>")
+		quotes = append(quotes, "<hr>")
 	})
 
 	URL := "https://www.imdb.com/title/" + tt + "/quotes"
